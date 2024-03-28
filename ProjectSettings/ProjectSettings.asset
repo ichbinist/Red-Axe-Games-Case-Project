@@ -782,22 +782,22 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: BCG_RCC
-    EmbeddedLinux: BCG_RCC
-    GameCoreScarlett: BCG_RCC
-    GameCoreXboxOne: BCG_RCC
-    LinuxHeadlessSimulation: BCG_RCC
-    Lumin: BCG_RCC
-    Nintendo Switch: BCG_RCC
-    PS4: BCG_RCC
-    PS5: BCG_RCC
-    Stadia: BCG_RCC
-    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;BCG_RCC
-    WebGL: BCG_RCC
-    Windows Store Apps: BCG_RCC
-    XboxOne: BCG_RCC
-    iPhone: BCG_RCC
-    tvOS: BCG_RCC
+    Android: BCG_RCC;DOTWEEN
+    EmbeddedLinux: BCG_RCC;DOTWEEN
+    GameCoreScarlett: BCG_RCC;DOTWEEN
+    GameCoreXboxOne: BCG_RCC;DOTWEEN
+    LinuxHeadlessSimulation: BCG_RCC;DOTWEEN
+    Lumin: BCG_RCC;DOTWEEN
+    Nintendo Switch: BCG_RCC;DOTWEEN
+    PS4: BCG_RCC;DOTWEEN
+    PS5: BCG_RCC;DOTWEEN
+    Stadia: BCG_RCC;DOTWEEN
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;BCG_RCC;DOTWEEN
+    WebGL: BCG_RCC;DOTWEEN
+    Windows Store Apps: BCG_RCC;DOTWEEN
+    XboxOne: BCG_RCC;DOTWEEN
+    iPhone: BCG_RCC;DOTWEEN
+    tvOS: BCG_RCC;DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
