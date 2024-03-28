@@ -45,11 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RCC_Cars:
-  - {fileID: 580181198717169275, guid: fff3bd24482348541b051e0afd0bf560, type: 3}
   - {fileID: 4493774594652649358, guid: f851da8df2f8ada4db4582a03cef590b, type: 3}
   - {fileID: 3354115180038256481, guid: cd3182b716b261a4b8833779b9a13d50, type: 3}
   - {fileID: 3433750683821809975, guid: ee0503dd128098541b0d4a577e974b57, type: 3}
-  - {fileID: 8604693750619759251, guid: 0e3f8a6d732712942a30a5336518b069, type: 3}
   - {fileID: 11495930, guid: b227544b26ab3c64790ea16a071216dd, type: 3}
   - {fileID: 8573549319431884785, guid: 92ea6928029e2244ea65000a8b275a3b, type: 3}
   - {fileID: 2533337409777661335, guid: 6543641b9d9df4e4ebf8f146aa96d38f, type: 3}
@@ -66,7 +64,7 @@ MonoBehaviour:
   - {fileID: 4359202017898977078, guid: 2881904e981479f4a919590c51b1b446, type: 3}
   - {fileID: 4614161650316802896, guid: f289e8d46e3ae214ab38f57db7a582ed, type: 3}
   - {fileID: 2604379769883802420, guid: df2ea84362e414b45a762ae7dd3801ad, type: 3}
-  CarSpawnLocation: {x: -2, y: 0.7, z: 0}
+  CarSpawnLocation: {x: -2, y: 2, z: 0}
   CharacterSpawnLocation: {x: 1, y: 0, z: 0}
   CarRotation: {x: 0, y: -1, z: 0, w: -0.00000004371139}
   CharacterRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}

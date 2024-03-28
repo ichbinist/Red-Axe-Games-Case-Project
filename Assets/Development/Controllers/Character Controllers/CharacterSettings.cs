@@ -62,7 +62,7 @@ public class CharacterSettings : MonoBehaviour
     {
         LockInteraction();
         LockControls();
-        SetParent(transform);
+        SetParent(carController.transform);
         RCC_Camera.SetTarget(carController);
         RCC_Camera.actualCamera.enabled = true;
         GetComponent<Rigidbody>().isKinematic = true;

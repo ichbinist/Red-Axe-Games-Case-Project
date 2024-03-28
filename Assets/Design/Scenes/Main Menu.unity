@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.38354, g: 325.1084, b: 430.30957, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3555,7 +3555,7 @@ MonoBehaviour:
   engineInertia: 0.2
   useRevLimiter: 1
   useExhaustFlame: 1
-  RunEngineAtAwake: 1
+  RunEngineAtAwake: 0
   engineRunning: 0
   useSteeringLimiter: 1
   useCounterSteering: 1

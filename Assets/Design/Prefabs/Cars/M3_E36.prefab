@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 487532}
   - component: {fileID: 5475594}
   - component: {fileID: 11495930}
+  - component: {fileID: 5702336908694189906}
   m_Layer: 8
   m_Name: M3_E36
   m_TagString: Player
@@ -571,6 +572,29 @@ MonoBehaviour:
   useNOS: 1
   useTurbo: 1
   attachedTrailer: {fileID: 0}
+--- !u!114 &5702336908694189906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e389985ba2d594fadba4311f195164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimplifiedCarStatistics:
+    DamagePercentage: 0
+    PaintPercentage: 0
+    UpgradePercentage: 0
+    MotorUpgrade: 0
+    MaxDamagePercentage: 0
+    MaxPaintedPercentage: 0
+    MaxUpgradedPercentage: 5
+  DamagedCarPossibility: 20
+  PaintedCarPossibility: 35
+  UpgradedCarPossibility: 25
 --- !u!1 &103758
 GameObject:
   m_ObjectHideFlags: 0

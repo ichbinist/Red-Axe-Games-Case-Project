@@ -16135,6 +16135,7 @@ GameObject:
   - component: {fileID: 4493774594652649356}
   - component: {fileID: 4493774594652649357}
   - component: {fileID: 4493774594652649358}
+  - component: {fileID: -5868804309702298878}
   m_Layer: 8
   m_Name: Coupe
   m_TagString: Player
@@ -16497,6 +16498,29 @@ MonoBehaviour:
   useNOS: 1
   useTurbo: 1
   attachedTrailer: {fileID: 0}
+--- !u!114 &-5868804309702298878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493774594652649359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e389985ba2d594fadba4311f195164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimplifiedCarStatistics:
+    DamagePercentage: 0
+    PaintPercentage: 0
+    UpgradePercentage: 0
+    MotorUpgrade: 0
+    MaxDamagePercentage: 0
+    MaxPaintedPercentage: 0
+    MaxUpgradedPercentage: 5
+  DamagedCarPossibility: 20
+  PaintedCarPossibility: 35
+  UpgradedCarPossibility: 25
 --- !u!1 &4493774594732186762
 GameObject:
   m_ObjectHideFlags: 0

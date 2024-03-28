@@ -75,18 +75,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3386758176317104392}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1434050458093544935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415928013781405215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15cc19c68167e794783a11aabb58185a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1778723042787041994
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -103,3 +91,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1434050458093544935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415928013781405215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15cc19c68167e794783a11aabb58185a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlayerRidingCar: 0

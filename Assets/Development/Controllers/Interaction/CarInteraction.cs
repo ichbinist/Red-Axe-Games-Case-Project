@@ -9,6 +9,7 @@ public class CarInteraction : MonoBehaviour, IInteractable
     public RCC_CarControllerV3 CarController { get { return (carController == null) ? carController = GetComponentInParent<RCC_CarControllerV3>(): carController; } }
 
     public bool IsInteractable { get; set; }
+    [ReadOnly]
     public bool IsPlayerRidingCar;
 
     private CharacterSettings CharacterSettings;

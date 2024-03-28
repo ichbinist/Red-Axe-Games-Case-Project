@@ -15581,6 +15581,7 @@ GameObject:
   - component: {fileID: 3433750683821809969}
   - component: {fileID: 3433750683821809968}
   - component: {fileID: 3433750683821809975}
+  - component: {fileID: 2935647581882608820}
   m_Layer: 8
   m_Name: F1
   m_TagString: Player
@@ -15923,6 +15924,29 @@ MonoBehaviour:
   useNOS: 0
   useTurbo: 0
   attachedTrailer: {fileID: 0}
+--- !u!114 &2935647581882608820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433750683821809974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e389985ba2d594fadba4311f195164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimplifiedCarStatistics:
+    DamagePercentage: 0
+    PaintPercentage: 0
+    UpgradePercentage: 0
+    MotorUpgrade: 0
+    MaxDamagePercentage: 0
+    MaxPaintedPercentage: 0
+    MaxUpgradedPercentage: 5
+  DamagedCarPossibility: 20
+  PaintedCarPossibility: 35
+  UpgradedCarPossibility: 25
 --- !u!1 &3433750683905628728
 GameObject:
   m_ObjectHideFlags: 0
@@ -21090,6 +21114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car Interaction Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 415928013781405215, guid: cec4d13aefd80104a958a041dd3bf774,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cec4d13aefd80104a958a041dd3bf774, type: 3}

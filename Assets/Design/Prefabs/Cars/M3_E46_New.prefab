@@ -24796,6 +24796,7 @@ GameObject:
   - component: {fileID: 8573549319431884784}
   - component: {fileID: 8573549319431884785}
   - component: {fileID: 8573549319431884786}
+  - component: {fileID: -1579690803707044717}
   m_Layer: 8
   m_Name: M3_E46_New
   m_TagString: Untagged
@@ -25203,6 +25204,29 @@ MonoBehaviour:
     rotateAround: 2
     text: {fileID: 0}
   interiorLights: []
+--- !u!114 &-1579690803707044717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8573549319431884798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e389985ba2d594fadba4311f195164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimplifiedCarStatistics:
+    DamagePercentage: 0
+    PaintPercentage: 0
+    UpgradePercentage: 0
+    MotorUpgrade: 0
+    MaxDamagePercentage: 0
+    MaxPaintedPercentage: 0
+    MaxUpgradedPercentage: 5
+  DamagedCarPossibility: 20
+  PaintedCarPossibility: 35
+  UpgradedCarPossibility: 25
 --- !u!1 &8573549319482302270
 GameObject:
   m_ObjectHideFlags: 0
