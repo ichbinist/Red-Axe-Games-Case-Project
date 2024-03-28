@@ -29,10 +29,12 @@ public class FPSController : MonoBehaviour
             CapsuleCollider.radius * 0.9f,
             ~LayerMask.NameToLayer("Player")
         );
-
-        Movement();
-        Rotation();
-        Jumping();
+        if (CharacterSettings.CanControl)
+        {
+            Movement();
+            Rotation();
+            Jumping();
+        }
     }
 
     public void Movement()
