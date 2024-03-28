@@ -781,7 +781,23 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: BCG_RCC
+    EmbeddedLinux: BCG_RCC
+    GameCoreScarlett: BCG_RCC
+    GameCoreXboxOne: BCG_RCC
+    LinuxHeadlessSimulation: BCG_RCC
+    Lumin: BCG_RCC
+    Nintendo Switch: BCG_RCC
+    PS4: BCG_RCC
+    PS5: BCG_RCC
+    Stadia: BCG_RCC
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;BCG_RCC
+    WebGL: BCG_RCC
+    Windows Store Apps: BCG_RCC
+    XboxOne: BCG_RCC
+    iPhone: BCG_RCC
+    tvOS: BCG_RCC
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -882,7 +898,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: ccb4b38e-e35b-4e16-9e21-fdd80a3792d3
   framebufferDepthMemorylessMode: 0
