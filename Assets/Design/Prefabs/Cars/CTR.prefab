@@ -11215,6 +11215,7 @@ GameObject:
   - component: {fileID: 3354115180038256487}
   - component: {fileID: 3354115180038256480}
   - component: {fileID: 3354115180038256481}
+  - component: {fileID: -5331891391477847719}
   - component: {fileID: 4476119673712581855}
   m_Layer: 8
   m_Name: CTR
@@ -11259,9 +11260,9 @@ Rigidbody:
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &3354115180038256481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11594,6 +11595,18 @@ MonoBehaviour:
   useNOS: 1
   useTurbo: 1
   attachedTrailer: {fileID: 0}
+--- !u!114 &-5331891391477847719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354115180038256482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927f07807fa7cc4459fe2a0d6b946968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4476119673712581855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11614,9 +11627,6 @@ MonoBehaviour:
     MaxDamagePercentage: 0
     MaxPaintedPercentage: 0
     MaxUpgradedPercentage: 5
-  DamagedCarPossibility: 20
-  PaintedCarPossibility: 35
-  UpgradedCarPossibility: 25
 --- !u!1 &3354115180106329301
 GameObject:
   m_ObjectHideFlags: 0

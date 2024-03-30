@@ -13,17 +13,26 @@ public class CarModifyingController : MonoBehaviour
     [ReadOnly]
     public SimplifiedCarStatistics SimplifiedCarStatistics;
 
-    [FoldoutGroup("Car Statistics Factors")]
-    public float DamagedCarPossibility = 10f;
-    [FoldoutGroup("Car Statistics Factors")]
-    public float PaintedCarPossibility = 10f;
-    [FoldoutGroup("Car Statistics Factors")]
-    public float UpgradedCarPossibility = 10f;
-
-    private void OnEnable()
+    public void Initialize()
     {
         SimplifiedCarStatistics = new SimplifiedCarStatistics();
-        StartCoroutine(InitializationCoroutine());
+        SimplifiedCarStatistics.MaxDamagePercentage = 100f;
+        SimplifiedCarStatistics.MaxPaintedPercentage = 100f;
+        SimplifiedCarStatistics.MaxUpgradedPercentage = 5f;
+        CarCalculations();
+    }
+
+    public float GetDamagePercent()
+    {
+        return (SimplifiedCarStatistics.DamagePercentage / SimplifiedCarStatistics.MaxDamagePercentage) * 100f;
+    }
+    public float GetPaintPercent()
+    {
+        return (SimplifiedCarStatistics.PaintPercentage / SimplifiedCarStatistics.MaxPaintedPercentage) * 100f;
+    }
+    public float GetUpgradePercent()
+    {
+        return (SimplifiedCarStatistics.UpgradePercentage / SimplifiedCarStatistics.MaxUpgradedPercentage) * 100f;
     }
 
     [Button]
@@ -47,7 +56,7 @@ public class CarModifyingController : MonoBehaviour
     private void RecursivePaint()
     {
         float percentage = Random.Range(0f, 100f);
-        if(percentage < PaintedCarPossibility)
+        if(percentage < FactorManager.Instance.Probability_Painted)
         {
             int index = Random.Range(0, Car.damage.meshFilters.Length);
 
@@ -63,16 +72,16 @@ public class CarModifyingController : MonoBehaviour
     private void RecursiveDamage()
     {
         float percentage = Random.Range(0f, 100f);
-        if (percentage < DamagedCarPossibility)
+        if (percentage < FactorManager.Instance.Probability_Damaged)
         {
             int index = Random.Range(0, Car.damage.meshFilters.Length);
             RaycastHit hit = new RaycastHit();
             hit.point = Car.damage.meshFilters[index].gameObject.transform.position;
             Car.damage.Initialize(Car);
-            Car.damage.OnCollisionWithRay(hit, 50000);
+            Car.damage.OnCollisionWithRay(hit, 5000);
             Car.damage.UpdateDamage();
 
-            SimplifiedCarStatistics.DamagePercentage = Mathf.Clamp(SimplifiedCarStatistics.DamagePercentage + 7.5f, 0f, SimplifiedCarStatistics.MaxDamagePercentage);
+            SimplifiedCarStatistics.DamagePercentage = Mathf.Clamp(SimplifiedCarStatistics.DamagePercentage + 10f, 0f, SimplifiedCarStatistics.MaxDamagePercentage);
 
             RecursiveDamage();
         }
@@ -81,7 +90,7 @@ public class CarModifyingController : MonoBehaviour
     private void RecursiveUpgrade()
     {
         float percentage = Random.Range(0f, 100f);
-        if (percentage < UpgradedCarPossibility)
+        if (percentage < FactorManager.Instance.Probability_Upgraded)
         {
             Car.maxEngineTorque += Car.maxEngineTorque * 0.15f;
             SimplifiedCarStatistics.UpgradePercentage = Mathf.Clamp(SimplifiedCarStatistics.UpgradePercentage + 1f, 0f, SimplifiedCarStatistics.MaxUpgradedPercentage);
@@ -89,39 +98,42 @@ public class CarModifyingController : MonoBehaviour
         }
     }
 
-    private IEnumerator InitializationCoroutine()
+    private void CarCalculations()
     {
-        yield return new WaitForSeconds(0.05f);
-
-        SimplifiedCarStatistics.MaxDamagePercentage = Car.damage.meshFilters.Length * 10f;
-        SimplifiedCarStatistics.MaxPaintedPercentage = Car.damage.meshFilters.Length * 10f;
-        SimplifiedCarStatistics.MaxUpgradedPercentage = 5f;
         Damage();
         Paint();
         Upgrade();
+    }
+
+    private IEnumerator InitializationCoroutine()
+    {
+        yield return new WaitForSeconds(0.05f);
+        CarCalculations();
     }
 }
 
 [System.Serializable]
 public class SimplifiedCarStatistics
 {
+    [FoldoutGroup("Car Statistics Data")]
+    [ReadOnly]
     public float DamagePercentage;
+    [FoldoutGroup("Car Statistics Data")]
+    [ReadOnly]
     public float PaintPercentage;
+    [FoldoutGroup("Car Statistics Data")]
+    [ReadOnly]
     public float UpgradePercentage;
 
-    //Upgrade Values
-
-    public int MotorUpgrade;
-
-    [FoldoutGroup("Car Statistics Data")]
+    [FoldoutGroup("Car Statistics Data/Max")]
     [ReadOnly]
     public float MaxDamagePercentage;
 
-    [FoldoutGroup("Car Statistics Data")]
+    [FoldoutGroup("Car Statistics Data/Max")]
     [ReadOnly]
     public float MaxPaintedPercentage;
 
-    [FoldoutGroup("Car Statistics Data")]
+    [FoldoutGroup("Car Statistics Data/Max")]
     [ReadOnly]
     public float MaxUpgradedPercentage = 5f;
 }

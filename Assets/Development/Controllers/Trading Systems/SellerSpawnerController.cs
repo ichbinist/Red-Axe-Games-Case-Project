@@ -1,10 +1,11 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SellerController : MonoBehaviour
+public class SellerSpawnerController : MonoBehaviour
 {
     [TabGroup("References")]
     public List<RCC_CarControllerV3> RCC_Cars = new List<RCC_CarControllerV3>();
@@ -30,13 +31,16 @@ public class SellerController : MonoBehaviour
     [ReadOnly]
     public bool IsPositionGlobal = false;
 
-    private void OnEnable()
+    public Action OnSpawnCompleted;
+
+    public void Initialize()
     {
         if (!IsPositionGlobal)
         {
             //Spawn car and Character according to the local position.
             SpawnCar();
             SpawnCharacter();
+            OnSpawnCompleted?.Invoke();
         }
         else
         {
@@ -52,7 +56,7 @@ public class SellerController : MonoBehaviour
             return;
         }
 
-        int randomCarIndex = Random.Range(0, RCC_Cars.Count);
+        int randomCarIndex = UnityEngine.Random.Range(0, RCC_Cars.Count);
 
         RCC_CarControllerV3 carInstance = Instantiate(RCC_Cars[randomCarIndex], transform);
 
@@ -71,7 +75,7 @@ public class SellerController : MonoBehaviour
             return;
         }
 
-        int randomCharacterIndex = Random.Range(0, Characters.Count);
+        int randomCharacterIndex = UnityEngine.Random.Range(0, Characters.Count);
 
         GameObject characterInstance = Instantiate(Characters[randomCharacterIndex], transform);
 

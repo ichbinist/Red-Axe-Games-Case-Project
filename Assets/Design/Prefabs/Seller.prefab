@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3907503347213378346}
   - component: {fileID: 6307965174732817424}
+  - component: {fileID: 3074023163886545199}
   m_Layer: 0
   m_Name: Seller
   m_TagString: Untagged
@@ -47,11 +48,9 @@ MonoBehaviour:
   RCC_Cars:
   - {fileID: 4493774594652649358, guid: f851da8df2f8ada4db4582a03cef590b, type: 3}
   - {fileID: 3354115180038256481, guid: cd3182b716b261a4b8833779b9a13d50, type: 3}
-  - {fileID: 3433750683821809975, guid: ee0503dd128098541b0d4a577e974b57, type: 3}
   - {fileID: 11495930, guid: b227544b26ab3c64790ea16a071216dd, type: 3}
   - {fileID: 8573549319431884785, guid: 92ea6928029e2244ea65000a8b275a3b, type: 3}
   - {fileID: 2533337409777661335, guid: 6543641b9d9df4e4ebf8f146aa96d38f, type: 3}
-  - {fileID: 114571143157923052, guid: dc389f0cd7223c448a9c1bd8a9313584, type: 3}
   - {fileID: 5712088508789026344, guid: 1edd9337abdbb0f4c9ad6f084863e092, type: 3}
   Characters:
   - {fileID: 5430519269431399404, guid: cd65c553b86a061468191f3843b7e6be, type: 3}
@@ -69,3 +68,17 @@ MonoBehaviour:
   CarRotation: {x: 0, y: -1, z: 0, w: -0.00000004371139}
   CharacterRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   IsPositionGlobal: 0
+--- !u!114 &3074023163886545199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907503347213378345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e4b095e93d9674aa77b1912406b693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarValue: 0
+  CarDefaultValueCalculationFactor: 2.5

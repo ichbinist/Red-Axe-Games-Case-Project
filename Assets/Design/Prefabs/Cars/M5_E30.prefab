@@ -6852,6 +6852,7 @@ GameObject:
   - component: {fileID: 2533337409777661353}
   - component: {fileID: 2533337409777661334}
   - component: {fileID: 2533337409777661335}
+  - component: {fileID: -6005173362433492964}
   - component: {fileID: -2250788375294942454}
   m_Layer: 8
   m_Name: M5_E30
@@ -6896,9 +6897,9 @@ Rigidbody:
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2533337409777661335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7238,6 +7239,18 @@ MonoBehaviour:
   useNOS: 1
   useTurbo: 1
   attachedTrailer: {fileID: 0}
+--- !u!114 &-6005173362433492964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533337409777661332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927f07807fa7cc4459fe2a0d6b946968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-2250788375294942454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7258,9 +7271,6 @@ MonoBehaviour:
     MaxDamagePercentage: 0
     MaxPaintedPercentage: 0
     MaxUpgradedPercentage: 5
-  DamagedCarPossibility: 20
-  PaintedCarPossibility: 35
-  UpgradedCarPossibility: 25
 --- !u!1 &2533337409806562932
 GameObject:
   m_ObjectHideFlags: 0

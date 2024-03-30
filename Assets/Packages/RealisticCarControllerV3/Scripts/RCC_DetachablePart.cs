@@ -179,7 +179,7 @@ public class RCC_DetachablePart : MonoBehaviour {
             if (partCollider)
                 partCollider.enabled = false;
 
-            if (Joint) {
+            if (Joint != null && jointProperties != null) {
 
                 Joint.angularXMotion = jointProperties.jointMotionAngularX;
                 Joint.angularYMotion = jointProperties.jointMotionAngularY;

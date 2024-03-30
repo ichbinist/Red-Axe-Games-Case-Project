@@ -2021,7 +2021,7 @@ public class RCC_Editor : Editor {
 
             if (layerInt >= 0 && layerInt <= 31) {
 
-                if (!t.GetComponent<RCC_Light>()) {
+                if (!t.GetComponent<RCC_Light>() && !t.GetComponent<CarInteraction>()) {
 
                     t.gameObject.layer = LayerMask.NameToLayer(RCC_Settings.Instance.RCCLayer);
 

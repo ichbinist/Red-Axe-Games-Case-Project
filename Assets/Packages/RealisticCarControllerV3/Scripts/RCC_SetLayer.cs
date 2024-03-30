@@ -14,8 +14,11 @@ public class RCC_SetLayer : MonoBehaviour {
 
         if (setChildren) {
 
-            foreach (Transform item in transform)
-                item.gameObject.layer = LayerMask.NameToLayer(layer);
+            foreach (Transform item in transform) 
+            {
+                if(item.gameObject.GetComponent<CarInteraction>() == false)
+                    item.gameObject.layer = LayerMask.NameToLayer(layer);
+            }
 
         }
 

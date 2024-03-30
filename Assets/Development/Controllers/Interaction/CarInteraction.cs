@@ -13,10 +13,11 @@ public class CarInteraction : MonoBehaviour, IInteractable
     public bool IsPlayerRidingCar;
 
     private CharacterSettings CharacterSettings;
+
     private void OnEnable()
     {
         //Geçici, Test için
-        IsInteractable = true;
+        IsInteractable = false;
     }
 
     public void Interact(CharacterSettings characterSettings)
