@@ -19,10 +19,22 @@ public class SellerController : MonoBehaviour
 
     private SellerSpawnerController sellerSpawnerController;
     public SellerSpawnerController SellerSpawnerController { get { return (sellerSpawnerController == null) ? sellerSpawnerController = GetComponent<SellerSpawnerController>() : sellerSpawnerController; } }
+    
+    [FoldoutGroup("Seller Data")]
+    [ReadOnly]
+    public SellerInteractionData SellerInteractionData = new SellerInteractionData();
+    
+    [FoldoutGroup("References")]
+    [ReadOnly]
+    public CharacterSettings CharacterSettings;
 
     [FoldoutGroup("Car Value Settings")]
     [ReadOnly]
-    public float CarValue = 0f;
+    public float BaseCarValue = 0f;
+
+    [FoldoutGroup("Car Value Settings")]
+    [ReadOnly]
+    public float AdjustedCarValue = 0f;
 
     [FoldoutGroup("Car Value Settings")]
     public float CarDefaultValueCalculationFactor = 1f;
@@ -42,18 +54,76 @@ public class SellerController : MonoBehaviour
     {
         float localValue = (CarSettings.CarController.maxspeed * CarDefaultValueCalculationFactor) + (CarSettings.CarController.maxEngineTorque * CarDefaultValueCalculationFactor * 0.5f) + (CarSettings.CarController.brakeTorque * CarDefaultValueCalculationFactor * 0.1f);
         
+        BaseCarValue = localValue;
+        
         CarModifyingController.Initialize();
-
-        Debug.Log(gameObject.name + ": " + localValue);
-        Debug.Log(gameObject.name + " Damage Percent: " + CarModifyingController.GetDamagePercent());
-        Debug.Log(gameObject.name + " Painted Percent: " + CarModifyingController.GetPaintPercent());
-        Debug.Log(gameObject.name + " Upgrade Percent: " + CarModifyingController.GetUpgradePercent());
-
 
         localValue -= Mathf.Abs(CarModifyingController.GetDamagePercent() * FactorManager.Instance.Valuation_Damaged);
         localValue -= Mathf.Abs(CarModifyingController.GetPaintPercent() * FactorManager.Instance.Valuation_Painted);
         localValue += Mathf.Abs(CarModifyingController.GetUpgradePercent() * FactorManager.Instance.Valuation_Upgraded);
 
-        CarValue = localValue;
+        AdjustedCarValue = localValue;
+
+        //Filling the Data
+        SellerInteractionData.Seller = this;
+        SellerInteractionData.CarName = CarSettings.CarName;
+        SellerInteractionData.MaxSpeed = CarSettings.CarController.maxspeed;
+        SellerInteractionData.MaxTorque = CarSettings.CarController.maxEngineTorque;
+        SellerInteractionData.BrakeTorque = CarSettings.CarController.brakeTorque;
+        SellerInteractionData.MotorUpgradeLevel = Mathf.RoundToInt(CarModifyingController.SimplifiedCarStatistics.UpgradePercentage);
+        SellerInteractionData.DamagePercent = CarModifyingController.GetDamagePercent();
+        SellerInteractionData.PaintedPercent = CarModifyingController.GetPaintPercent();
+        SellerInteractionData.BaseValue = BaseCarValue;
+        SellerInteractionData.ModifiedValue = AdjustedCarValue;
     }
+
+    public void SellerTradeInteraction()
+    {
+        SellerManager.Instance.OnSellerInteractionStarted.Invoke(SellerInteractionData);
+    }
+}
+
+[System.Serializable]
+public class SellerInteractionData
+{
+    [ReadOnly]
+    public SellerController Seller;
+    //-------------CAR INFO----------------
+    [FoldoutGroup("General Info")]
+    [ReadOnly]
+    public string CarName;
+    [FoldoutGroup("General Info")]
+    [ReadOnly]
+    public string CarProducer = "WMB Motors";
+
+    [FoldoutGroup("Motor Info")]
+    [ReadOnly]
+    public float MaxSpeed;
+    [FoldoutGroup("Motor Info")]
+    [ReadOnly]
+    public float MaxTorque;
+    [FoldoutGroup("Motor Info")]
+    [ReadOnly]
+    public float BrakeTorque;
+
+    [FoldoutGroup("Motor Info")]
+    [ReadOnly]
+    public int MotorUpgradeLevel;
+
+    [FoldoutGroup("Damage Info")]
+    [ReadOnly]
+    public float DamagePercent;
+    [FoldoutGroup("Damage Info")]
+    [ReadOnly]
+    public float PaintedPercent;
+    //-------------------------------------
+
+    //-------------VALUE INFO--------------
+    [FoldoutGroup("Value Info")]
+    [ReadOnly]
+    public float BaseValue;
+    [FoldoutGroup("Value Info")]
+    [ReadOnly]
+    public float ModifiedValue;
+    //-------------------------------------
 }

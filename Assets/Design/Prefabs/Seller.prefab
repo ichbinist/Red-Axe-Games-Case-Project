@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3907503347213378346}
   - component: {fileID: 6307965174732817424}
   - component: {fileID: 3074023163886545199}
+  - component: {fileID: 8755896940075754519}
   m_Layer: 0
   m_Name: Seller
   m_TagString: Untagged
@@ -80,5 +81,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e4b095e93d9674aa77b1912406b693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CarValue: 0
+  SellerInteractionData:
+    Seller: {fileID: 0}
+    CarName: 
+    CarProducer: WMB Motors
+    MaxSpeed: 0
+    MaxTorque: 0
+    BrakeTorque: 0
+    MotorUpgradeLevel: 0
+    DamagePercent: 0
+    PaintedPercent: 0
+    BaseValue: 0
+    ModifiedValue: 0
+  CharacterSettings: {fileID: 0}
+  BaseCarValue: 0
+  AdjustedCarValue: 0
   CarDefaultValueCalculationFactor: 2.5
+--- !u!114 &8755896940075754519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907503347213378345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f475985a6adaf94e8a5c0a97417b132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

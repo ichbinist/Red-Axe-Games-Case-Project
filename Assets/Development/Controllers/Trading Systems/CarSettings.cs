@@ -10,7 +10,8 @@ public class CarSettings : MonoBehaviour
 
     private CarInteraction carInteraction;
     public CarInteraction CarInteraction { get { return (carInteraction == null) ? carInteraction = GetComponentInChildren<CarInteraction>() : carInteraction; } }
-
+    [FoldoutGroup("Car Settings")]
+    public string CarName;
     [FoldoutGroup("Ownership Settings")]
     [ReadOnly]
     public Ownership Ownership = Ownership.NPC;

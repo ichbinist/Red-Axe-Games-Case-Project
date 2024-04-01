@@ -57,16 +57,40 @@ public class CharacterSettings : MonoBehaviour
     {
         this.transform.parent = null;
     }
+
+    public void LockPhysics()
+    {
+        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Collider>().enabled = false;
+    }
+
+    public void UnlockPhysics()
+    {
+        GetComponent<Collider>().enabled = true;
+        GetComponent<Rigidbody>().isKinematic = false;
+    }
     
+    public void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
+
     public void UseCar(RCC_CarControllerV3 carController)
     {
+        if (!CanControl) return;
         LockInteraction();
         LockControls();
         SetParent(carController.transform);
         RCC_Camera.SetTarget(carController);
         RCC_Camera.actualCamera.enabled = true;
-        GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<Collider>().enabled = false;
+        LockPhysics();
         transform.rotation = Quaternion.identity;
         carController.SetEngine(true);
         carController.SetCanControl(true);
@@ -78,8 +102,7 @@ public class CharacterSettings : MonoBehaviour
         UnlockInteraction();
         ClearParent();
         transform.rotation = Quaternion.identity;
-        GetComponent<Collider>().enabled = true;
-        GetComponent<Rigidbody>().isKinematic = false;
+        UnlockPhysics();
         RCC_Camera.actualCamera.enabled = false;
         carController.SetEngine(false);
         carController.SetCanControl(false);

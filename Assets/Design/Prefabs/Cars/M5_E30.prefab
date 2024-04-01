@@ -7251,6 +7251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927f07807fa7cc4459fe2a0d6b946968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CarName: E30
+  Ownership: 0
 --- !u!114 &-2250788375294942454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7267,7 +7269,6 @@ MonoBehaviour:
     DamagePercentage: 0
     PaintPercentage: 0
     UpgradePercentage: 0
-    MotorUpgrade: 0
     MaxDamagePercentage: 0
     MaxPaintedPercentage: 0
     MaxUpgradedPercentage: 5
