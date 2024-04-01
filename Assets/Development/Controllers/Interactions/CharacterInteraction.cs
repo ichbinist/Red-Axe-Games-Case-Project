@@ -23,7 +23,8 @@ public class CharacterInteraction : MonoBehaviour, IInteractable
 
     private void SellerInteractionFinishedAction(SellerInteractionData sellerInteractionData)
     {
-        IsInteractable = false;
+        if(sellerInteractionData.Seller == SellerController)
+            IsInteractable = false;
     }
 
     public void Interact(CharacterSettings characterSettings)

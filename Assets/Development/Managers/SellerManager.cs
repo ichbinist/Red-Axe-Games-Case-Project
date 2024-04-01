@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SellerManager : Singleton<SellerManager>
 {
+    public SellerInteractionData CurrentSellerInteractionData;
     public Action<SellerInteractionData> OnSellerInteractionStarted;
     public Action<SellerInteractionData> OnSellerDataUpdate;
     public Action<SellerInteractionData> OnSellerInteractionFinished;

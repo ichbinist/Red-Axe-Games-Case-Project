@@ -8,6 +8,15 @@ public class SellerHaggleController : MonoBehaviour
     [FoldoutGroup("Seller Data")]
     [ReadOnly]
     public SellerInteractionData SellerInteractionData = new SellerInteractionData();
+
+    private bool isSold;
+    private bool IsTargetSeller
+    {
+        get
+        {
+            return SellerManager.Instance.CurrentSellerInteractionData.Seller == GetComponent<SellerController>();               
+        }
+    }
     private void OnEnable()
     {
         SellerManager.Instance.OnSellerInteractionStarted += Initialize;
@@ -19,17 +28,26 @@ public class SellerHaggleController : MonoBehaviour
     private void OnDisable()
     {
         if(SellerManager.Instance != null)
+        {
             SellerManager.Instance.OnSellerInteractionStarted -= Initialize;
+            SellerManager.Instance.OnHaggle -= OnHaggle;
+            SellerManager.Instance.OnAccept -= OnAccept;
+            SellerManager.Instance.OnRefuse -= OnRefuse;
+        }
     }
-
+            
     private void Initialize(SellerInteractionData sellerInteractionData)
     {
-        SellerInteractionData = sellerInteractionData;
+        if(sellerInteractionData.Seller == GetComponent<SellerController>())
+            SellerInteractionData = sellerInteractionData;
     }
 
     public void OnHaggle(float purposeValue)
     {
-        if(purposeValue >= SellerInteractionData.ModifiedValue)
+        if (!IsTargetSeller)
+            return;
+
+        if (purposeValue >= SellerInteractionData.ModifiedValue)
         {
             AcceptDeal(purposeValue);
         }
@@ -52,11 +70,15 @@ public class SellerHaggleController : MonoBehaviour
 
     public void OnAccept(float purposeValue)
     {
+        if (!IsTargetSeller)
+            return;
         AcceptDeal(purposeValue);
     }
 
     public void OnRefuse()
     {
+        if (!IsTargetSeller)
+            return;
         CloseDeal();
     }
 
@@ -71,16 +93,20 @@ public class SellerHaggleController : MonoBehaviour
 
     private void AcceptDeal(float acceptedValue)
     {
+        if (!IsTargetSeller)
+            return;
+        if (isSold)
+            return;
         //Deal'ý kabul et
-        
         SellerInteractionData.Seller.CarSettings.ChangeOwnership(Ownership.Player);
         //Parayý Azalt
-
+        WealthManager.Instance.DecreaseWealth(acceptedValue);
         SellerManager.Instance.OnSellerInteractionFinished?.Invoke(SellerInteractionData);
         SellerInteractionData.Seller.CharacterSettings.UnlockControls();
         SellerInteractionData.Seller.CharacterSettings.UnlockInteraction();
         SellerInteractionData.Seller.CharacterSettings.UnlockPhysics();
         SellerInteractionData.Seller.CharacterSettings.LockCursor();
+        isSold = true;
     }
 
     private void RepurposeDeal(float repurposedValue)

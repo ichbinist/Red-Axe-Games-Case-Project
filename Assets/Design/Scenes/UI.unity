@@ -5582,3 +5582,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc078728b777c04caa8f7c9bbc27423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WealthText: {fileID: 389600754}

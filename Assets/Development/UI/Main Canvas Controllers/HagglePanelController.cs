@@ -80,11 +80,18 @@ public class HagglePanelController : BasePanel
     {
         if (IsPanelActive && sellerInteractionData != null)
         {
+            if (!WealthManager.Instance.DoesHaveEnoughWealth(sellerInteractionData.ModifiedValue))
+            {
+                HaggleButton.interactable = false;
+                AcceptButton.interactable = false;
+                return;
+            }
+
             string inputText = BuyerProposalInputArea.text;
 
-            int value;
+            float value;
 
-            if (int.TryParse(inputText, out value))
+            if (float.TryParse(inputText, out value))
             {
                 if(value != sellerInteractionData.ModifiedValue)
                 {
@@ -101,7 +108,6 @@ public class HagglePanelController : BasePanel
             {
                 HaggleButton.interactable = false;
                 AcceptButton.interactable = false;
-
             }
         }
     }
@@ -185,9 +191,9 @@ public class HagglePanelController : BasePanel
 
         if (int.TryParse(inputText, out value))
         {
-            SellerManager.Instance.OnHaggle((float)value);
+            Debug.Log(value);
+            SellerManager.Instance.OnHaggle.Invoke((float)value);
         }
-
     }
 
     protected void RefuseButtonAction()

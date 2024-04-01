@@ -79,6 +79,7 @@ public class SellerController : MonoBehaviour
 
     public void SellerTradeInteraction()
     {
+        SellerManager.Instance.CurrentSellerInteractionData = SellerInteractionData;
         SellerManager.Instance.OnSellerInteractionStarted.Invoke(SellerInteractionData);
     }
 }
