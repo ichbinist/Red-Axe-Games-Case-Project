@@ -9,6 +9,8 @@ public class CharacterInteraction : MonoBehaviour, IInteractable
     private SellerController sellerController;
     public SellerController SellerController { get { return (sellerController == null) ? sellerController = GetComponentInParent<SellerController>() : sellerController; } }
 
+    public string InteractableText { get => "<color=#00FF00>E</color> to Trade";}
+
     private void OnEnable()
     {
         SellerManager.Instance.OnSellerInteractionFinished += SellerInteractionFinishedAction;

@@ -20,6 +20,14 @@ public class FPSInteractionController : MonoBehaviour
         Interact();
     }
 
+    public void InteractionToUI()
+    {
+        if (isTargetAvailable)
+        {
+
+        }
+    }
+
     public void CheckInteractionTarget()
     {
         if (CharacterSettings.CanInterract)
@@ -33,12 +41,22 @@ public class FPSInteractionController : MonoBehaviour
                 if(interactable != null)
                 {
                     this.interactable = interactable;
+
+                    if (interactable.IsInteractable)
+                        InteractionManager.Instance.OnInteractableTargetChange?.Invoke(interactable.InteractableText);
+                    else
+                        InteractionManager.Instance.OnInteractableTargetChange?.Invoke(string.Empty);
                 }
             }
             else
             {
                 this.interactable = null;
+                InteractionManager.Instance.OnInteractableTargetChange?.Invoke(string.Empty);
             }
+        }
+        else
+        {
+            InteractionManager.Instance.OnInteractableTargetChange?.Invoke(string.Empty);
         }
     }
 
