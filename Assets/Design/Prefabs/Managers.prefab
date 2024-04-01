@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99b6f4419ff0f540bec4855ac074293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wealth: 0
 --- !u!1 &3645570381914444324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,9 +1166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SplashScreenImage: {fileID: 3645570383347496237}
   LoadingScreenSprites:
-  - {fileID: 21300000, guid: 47eb61b4de5fce949b4e455a98575e01, type: 3}
-  - {fileID: 21300000, guid: b2094303b3b002d4b840ca59299a05b0, type: 3}
-  - {fileID: 21300000, guid: 9b15fe02d30ab1844a83032feca001fe, type: 3}
+  - {fileID: 21300000, guid: 381a36f38f7b48b40b3e8653fc9854ec, type: 3}
 --- !u!1 &3645570383590814704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,3 +1438,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6492539a47e2e47a406bc848aedafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentSellerInteractionData:
+    Seller: {fileID: 0}
+    CarName: 
+    CarProducer: WMB Motors
+    MaxSpeed: 0
+    MaxTorque: 0
+    BrakeTorque: 0
+    MotorUpgradeLevel: 0
+    DamagePercent: 0
+    PaintedPercent: 0
+    BaseValue: 0
+    ModifiedValue: 0

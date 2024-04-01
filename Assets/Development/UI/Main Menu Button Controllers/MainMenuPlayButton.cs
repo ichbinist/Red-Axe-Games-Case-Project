@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MainMenuPlayButton : BaseMainMenuButton
 {
     private bool IsLevelLoading;
+    public CanvasGroup MainMenuCanvasGroup;
     public override void OnClick()
     {
         if (!IsLevelLoading)
@@ -14,6 +15,8 @@ public class MainMenuPlayButton : BaseMainMenuButton
             IsLevelLoading = true;
 
             SceneManagement.Instance.LoadLevel("Gameplay");
+            MainMenuCanvasGroup.alpha = 0f;
+            MainMenuCanvasGroup.interactable = false;
             LoadingScreenManager.Instance.LoadingScreenActivate();
             SceneManagement.Instance.UnloadLevel("Main Menu");
         }
