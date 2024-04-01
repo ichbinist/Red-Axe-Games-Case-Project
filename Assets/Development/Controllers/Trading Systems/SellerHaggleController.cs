@@ -18,7 +18,8 @@ public class SellerHaggleController : MonoBehaviour
 
     private void OnDisable()
     {
-        SellerManager.Instance.OnSellerInteractionStarted -= Initialize;
+        if(SellerManager.Instance != null)
+            SellerManager.Instance.OnSellerInteractionStarted -= Initialize;
     }
 
     private void Initialize(SellerInteractionData sellerInteractionData)
@@ -62,7 +63,6 @@ public class SellerHaggleController : MonoBehaviour
     private void CloseDeal()
     {
         //Deal'ý kapat
-        SellerManager.Instance.OnSellerInteractionFinished?.Invoke(SellerInteractionData);
         SellerInteractionData.Seller.CharacterSettings.UnlockControls();
         SellerInteractionData.Seller.CharacterSettings.UnlockInteraction();
         SellerInteractionData.Seller.CharacterSettings.UnlockPhysics();

@@ -78,8 +78,8 @@ public class CharacterSettings : MonoBehaviour
 
     public void UnlockCursor()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void UseCar(RCC_CarControllerV3 carController)
