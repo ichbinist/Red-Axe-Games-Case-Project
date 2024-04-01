@@ -16,6 +16,12 @@ public class CarSettings : MonoBehaviour
     [ReadOnly]
     public Ownership Ownership = Ownership.NPC;
 
+    private void OnEnable()
+    {
+        Ownership = Ownership.NPC;
+        CarInteraction.IsInteractable = false;
+    }
+
     public void ChangeOwnership(Ownership ownership)
     {
         Ownership = ownership;

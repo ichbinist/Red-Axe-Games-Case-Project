@@ -24,7 +24,6 @@ public class CharacterInteraction : MonoBehaviour, IInteractable
     private void SellerInteractionFinishedAction(SellerInteractionData sellerInteractionData)
     {
         IsInteractable = false;
-        SellerController.CarSettings.ChangeOwnership(Ownership.Player);
     }
 
     public void Interact(CharacterSettings characterSettings)

@@ -53,9 +53,11 @@ public class HagglePanelController : BasePanel
 
         ClosePanel();
         SellerManager.Instance.OnSellerInteractionStarted += OnSellerInitialize;
+        SellerManager.Instance.OnSellerDataUpdate += OnSellerInitialize;
         AcceptButton.onClick.AddListener(AcceptButtonAction);
         HaggleButton.onClick.AddListener(HaggleButtonAction);
         RefuseButton.onClick.AddListener(RefuseButtonAction);
+        SellerManager.Instance.OnSellerInteractionFinished += OnSellerFinished;
     }
 
     protected override void OnDisable()
@@ -65,11 +67,43 @@ public class HagglePanelController : BasePanel
         if (SellerManager.Instance)
         {
             SellerManager.Instance.OnSellerInteractionStarted -= OnSellerInitialize;
+            SellerManager.Instance.OnSellerDataUpdate -= OnSellerInitialize;
+            SellerManager.Instance.OnSellerInteractionFinished -= OnSellerFinished;
         }
 
         AcceptButton.onClick.RemoveListener(AcceptButtonAction);
         HaggleButton.onClick.RemoveListener(HaggleButtonAction);
         RefuseButton.onClick.RemoveListener(RefuseButtonAction);
+    }
+
+    private void Update()
+    {
+        if (IsPanelActive && sellerInteractionData != null)
+        {
+            string inputText = BuyerProposalInputArea.text;
+
+            int value;
+
+            if (int.TryParse(inputText, out value))
+            {
+                if(value != sellerInteractionData.ModifiedValue)
+                {
+                    AcceptButton.interactable = false;
+                    HaggleButton.interactable = true;
+                }
+                else
+                {
+                    AcceptButton.interactable = true;
+                    HaggleButton.interactable = false;
+                }
+            }
+            else
+            {
+                HaggleButton.interactable = false;
+                AcceptButton.interactable = false;
+
+            }
+        }
     }
 
     #region PanelArea
@@ -116,6 +150,12 @@ public class HagglePanelController : BasePanel
         OpenPanel();
     }
 
+    protected void OnSellerFinished(SellerInteractionData sellerInteractionData)
+    {
+        ClosePanel();
+        ClearTexts();
+    }
+
     protected void ClearTexts()
     {
         CarNameText.RestoreText();
@@ -139,6 +179,14 @@ public class HagglePanelController : BasePanel
 
     protected void HaggleButtonAction()
     {
+        string inputText = BuyerProposalInputArea.text;
+
+        int value;
+
+        if (int.TryParse(inputText, out value))
+        {
+            SellerManager.Instance.OnHaggle((float)value);
+        }
 
     }
 
