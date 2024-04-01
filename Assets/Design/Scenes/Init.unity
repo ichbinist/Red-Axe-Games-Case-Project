@@ -190,11 +190,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 3645570383347496234, guid: 19a296688fe8ecd46b54f80795c73e88,
-        type: 3}
-      propertyPath: LoadingScreenSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 9b15fe02d30ab1844a83032feca001fe,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a296688fe8ecd46b54f80795c73e88, type: 3}
