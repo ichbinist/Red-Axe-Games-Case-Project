@@ -108,6 +108,7 @@ public class RCC_Joint {
     /// <param name="joint"></param>
     public static void LockPart(ConfigurableJoint joint) {
 
+        if (joint == null) return;
         joint.angularXMotion = ConfigurableJointMotion.Locked;
         joint.angularYMotion = ConfigurableJointMotion.Locked;
         joint.angularZMotion = ConfigurableJointMotion.Locked;

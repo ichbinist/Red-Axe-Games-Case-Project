@@ -46,4 +46,9 @@ public class LoadingScreenManager : Singleton<LoadingScreenManager>
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(gameObject);
+    }
 }
