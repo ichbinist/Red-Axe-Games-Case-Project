@@ -16,4 +16,3 @@
 
 ## Getting Started
 - To begin playing, launch the game and use the provided **Init Scene** to start.
-- Ensure you have the necessary dependencies installed and configured as per the instructions in the project's documentation.
